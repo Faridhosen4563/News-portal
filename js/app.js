@@ -35,7 +35,7 @@ const showNews = news => {
     news.forEach(newsItem => {
         console.log(newsItem);
 
-        const { author, details, rating, thumbnail_url, title, total_view, image_url } = newsItem;
+        const { author, details, rating, thumbnail_url, title, total_view, image_url, _id } = newsItem;
         const { name, published_date, img } = author;
 
         console.log(details.length)
@@ -65,7 +65,8 @@ const showNews = news => {
                         <i class="fa-solid fa-star-half-stroke"></i>
                         <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>
                         </div>
-                        <label onclick="showmodal('${image_url}','${details}')" for="news-modal" class="modal-button text-blue-500 hover:text-blue-800 hover:cursor-pointer pr-4"><i class="fa-solid fa-arrow-right"></i></label>
+                        <label onclick="showmodalbody('${_id ? _id : "no id found"}')"
+                         for="news-modal" class="modal-button text-blue-500 hover:text-blue-800 hover:cursor-pointer pr-4"><i class="fa-solid fa-arrow-right"></i></label>
                     </div>
                 </div>
             </div>
@@ -74,10 +75,37 @@ const showNews = news => {
     })
 }
 
-const showmodal = (image, details) => {
-    const modalBoddy = document.getElementById("modal-body");
-    modalBoddy.innerHTML = `
-        <img src="${image ? image : 'no image'}" alt="image"
+const showmodalbody = (id) => {
+    const url = `https://openapi.programming-hero.com/api/news/${id}`
+    fetch(url)
+        .then(res => res.json())
+        .then(data => displayModal(data.data[0]))
+        .catch(error => console.log(error))
+
+
+}
+
+const displayModal = data => {
+    console.log(data);
+
+    const { image_url, rating, title, others_info } = data;
+    const { number, badge } = rating;
+    const { is_todays_pick, is_trending } = others_info;
+
+    const modalContainer = document.getElementById("modal-container");
+    modalContainer.innerHTML = `
+        <div class="card card-compact w-full bg-base-100">
+            <figure><img src="${image_url ? image_url : "no image found"}" alt="Shoes" /></figure>
+            <div class="card-body">
+                <h2 class="card-title">${title}</h2>
+                <p>is_todays_pick : ${is_todays_pick ? "yes, this is todays pick" : "no, this is not todays pick"}</p>
+                <p>is_trending : ${is_trending ? "yes, this is hot news" : "no, this is not."}</p>
+                <div class="card-actions justify-between">
+                     <p><i class="fa-solid fa-star"></i> ${number ? number : "no data"}</p>
+                     <p><i class="fa-solid fa-certificate"></i> ${badge ? badge : "no data found"}</p>
+                </div>
+            </div>
+        </div>
     `
 }
 
