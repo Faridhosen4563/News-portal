@@ -21,7 +21,6 @@ const displayManuData = (datas) => {
 
 const loadNewsData = id => {
     const url = `https://openapi.programming-hero.com/api/news/category/${id}`
-    console.log(url);
     fetch(url)
         .then(res => res.json())
         .then(data => showNews(data.data))
@@ -30,17 +29,25 @@ const loadNewsData = id => {
 }
 
 const showNews = news => {
-    console.log(news)
     const newsBody = document.getElementById("news-body");
     newsBody.textContent = '';
 
+    console.log(news.length);
+
+    const noFound = document.getElementById("no-found");
+
+    if (news.length === 0) {
+        noFound.classList.remove("hidden");
+    }
+    else {
+        noFound.classList.add("hidden");
+    }
+
+
     news.forEach(newsItem => {
-        console.log(newsItem);
 
-        const { author, details, rating, thumbnail_url, title, total_view, image_url, _id } = newsItem;
+        const { author, details, rating, thumbnail_url, title, total_view, _id } = newsItem;
         const { name, published_date, img } = author;
-
-        console.log(details.length)
         const newsDiv = document.createElement('div');
         newsDiv.innerHTML = `
             <div class="card lg:card-side bg-base-100 shadow-xl border my-6">
