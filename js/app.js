@@ -139,3 +139,5 @@ const toggleLoader = (isLoad) => {
 }
 
 loadCatagory();
+
+
