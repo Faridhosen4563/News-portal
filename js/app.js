@@ -35,7 +35,7 @@ const showNews = news => {
     news.forEach(newsItem => {
         console.log(newsItem);
 
-        const { author, details, rating, thumbnail_url, title, total_view } = newsItem;
+        const { author, details, rating, thumbnail_url, title, total_view, image_url } = newsItem;
         const { name, published_date, img } = author;
 
         console.log(details.length)
@@ -65,13 +65,20 @@ const showNews = news => {
                         <i class="fa-solid fa-star-half-stroke"></i>
                         <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>
                         </div>
-                        <a class="text-blue-500 hover:text-blue-800 hover:cursor-pointer pr-4"><i class="fa-solid fa-arrow-right"></i></a>
+                        <label onclick="showmodal('${image_url}','${details}')" for="news-modal" class="modal-button text-blue-500 hover:text-blue-800 hover:cursor-pointer pr-4"><i class="fa-solid fa-arrow-right"></i></label>
                     </div>
                 </div>
             </div>
         `
         newsBody.appendChild(newsDiv);
     })
+}
+
+const showmodal = (image, details) => {
+    const modalBoddy = document.getElementById("modal-body");
+    modalBoddy.innerHTML = `
+        <img src="${image ? image : 'no image'}" alt="image"
+    `
 }
 
 loadCatagory();
