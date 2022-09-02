@@ -16,6 +16,7 @@ const displayManuData = (datas) => {
         li.innerHTML = `<a onclick="loadNewsData('${category_id}')">${category_name}</a>`
         menuContainer.appendChild(li);
     })
+
 }
 
 const loadNewsData = id => {
@@ -25,6 +26,7 @@ const loadNewsData = id => {
         .then(res => res.json())
         .then(data => showNews(data.data))
         .catch(error => console.log(error))
+    toggleLoader(true);
 }
 
 const showNews = news => {
@@ -72,7 +74,9 @@ const showNews = news => {
             </div>
         `
         newsBody.appendChild(newsDiv);
+
     })
+    toggleLoader(false);
 }
 
 const showmodalbody = (id) => {
@@ -107,6 +111,16 @@ const displayModal = data => {
             </div>
         </div>
     `
+}
+
+const toggleLoader = (isLoad) => {
+    const loader = document.getElementById("loader");
+    if (isLoad) {
+        loader.classList.remove('hidden');
+    }
+    else {
+        loader.classList.add('hidden');
+    }
 }
 
 loadCatagory();
