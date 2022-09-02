@@ -32,9 +32,9 @@ const showNews = news => {
     const newsBody = document.getElementById("news-body");
     newsBody.textContent = '';
 
-    console.log(news.length);
 
     const noFound = document.getElementById("no-found");
+    const found = document.getElementById("found");
 
     if (news.length === 0) {
         noFound.classList.remove("hidden");
@@ -42,6 +42,14 @@ const showNews = news => {
     else {
         noFound.classList.add("hidden");
     }
+    if (news.length > 0) {
+        found.innerHTML = `<h2 class="text-2xl font-normal">${news.length} news found for this categories.</h2>`
+        found.classList.remove('hidden');
+    }
+    else {
+        found.classList.add('hidden');
+    }
+
 
 
     news.forEach(newsItem => {
