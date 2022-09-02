@@ -36,6 +36,7 @@ const showNews = news => {
         console.log(newsItem);
 
         const { author, details, rating, thumbnail_url, title, total_view } = newsItem;
+        const { name, published_date, img } = author;
 
         console.log(details.length)
         const newsDiv = document.createElement('div');
@@ -45,8 +46,26 @@ const showNews = news => {
                 <div class="card-body">
                     <h2 class="card-title pt-8">${title}</h2>
                     <p>${details.length > 500 ? details.slice(0, 500) + "..." : details}</p>
-                    <div class="card-actions justify-end">
-                        <button class="btn btn-primary">Listen</button>
+                    <div class="card-actions justify-between mb-4 items-center">
+                        <div class="flex flex-row gap-4">
+                            <div>
+                                <img src=${img ? img : "no img"} alt="author" class="w-16 h-16 rounded-full">
+                            </div>
+                            <div>
+                                <p class="text-lg font-medium">${name ? name : "no name found"}</p>
+                                <p>${published_date ? published_date : "no data found"}</p>
+                            </div>
+                        </div>
+                        <div>
+                            <p><i class="fa-solid fa-eye"></i> ${total_view}</p>
+                        </div>
+                        <div>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                        <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>
+                        </div>
+                        <a class="text-blue-500 hover:text-blue-800 hover:cursor-pointer pr-4"><i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
