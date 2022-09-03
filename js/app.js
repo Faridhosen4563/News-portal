@@ -7,7 +7,6 @@ const loadCatagory = () => {
 }
 
 const displayManuData = (datas) => {
-    console.log(datas);
     const menuContainer = document.getElementById("manu-section");
 
     datas.forEach(data => {
@@ -106,9 +105,8 @@ const showmodalbody = (id) => {
 }
 
 const displayModal = data => {
-    console.log(data);
 
-    const { image_url, rating, title, others_info } = data;
+    const { image_url, rating, title, others_info, details } = data;
     const { number, badge } = rating;
     const { is_todays_pick, is_trending } = others_info;
 
@@ -117,9 +115,10 @@ const displayModal = data => {
         <div class="card card-compact w-full bg-base-100">
             <figure><img src="${image_url ? image_url : "no image found"}" alt="Shoes" /></figure>
             <div class="card-body">
-                <h2 class="card-title">${title}</h2>
-                <p>is_todays_pick : ${is_todays_pick ? "yes, this is todays pick" : "no, this is not todays pick"}</p>
-                <p>is_trending : ${is_trending ? "yes, this is hot news" : "no, this is not."}</p>
+                <h2 class="card-title mb-2">${title}</h2>
+                <p class = "mb-2">is_todays_pick : ${is_todays_pick ? "yes, this is todays pick" : "no, this is not todays pick"}</p>
+                <p class = "mb-2">is_trending : ${is_trending ? "yes, this is hot news" : "no, this is not."}</p>
+                <p class = "mb-2">${details ? details : "No data found"}</p>
                 <div class="card-actions justify-between">
                      <p><i class="fa-solid fa-star"></i> ${number ? number : "no data"}</p>
                      <p><i class="fa-solid fa-certificate"></i> ${badge ? badge : "no data found"}</p>
