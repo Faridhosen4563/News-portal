@@ -17,7 +17,7 @@
 </head>
 
 
-<body class="px-20">
+<body class="md:px-20">
 
     <header>
         <!-- nav bar -->
@@ -31,7 +31,7 @@
                     <ul class="menu menu-horizontal p-0">
                         <li><a href="index.html">Home</a></li>
                         <li><a class="active" href="blog.html">Blog</a></li>
-                        <li><a href="index.html">About Us</a></li>
+                        <!-- <li><a href="index.html">About Us</a></li> -->
                     </ul>
                 </div>
                 <div class="dropdown dropdown-end">
@@ -58,57 +58,48 @@
     </header>
 
     <main>
-        <article class="px-10 m-12">
+        <article class="px-10 my-8 md:m-12">
             <div>
                 <p class="text-xl font-medium mb-2"><i class="fa-solid fa-circle-question"></i> Difference between
                     var let and const?</p>
                 <p><i class="fa-solid fa-arrow-right"></i>
 
-                <div class="overflow-x-auto mt-2">
-                    <table class="table table-zebra w-1/2">
-                        <!-- head -->
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Var</th>
-                                <th>Let</th>
-                                <th>Const</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- row 1 -->
-                            <tr>
-                                <th>1</th>
-                                <td>The scope of a var variable is functional scope.</td>
-                                <td>The scope of a let variable is block scope.</td>
-                                <td>The scope of a const variable is block scope.</td>
-                            </tr>
-                            <!-- row 2 -->
-                            <tr>
-                                <th>2</th>
-                                <td>It can be updated and re-declared into the scope.</td>
-                                <td>It can be updated but cannot be re-declared into the scope.</td>
-                                <td>It cannot be updated or re-declared into the scope.</td>
-                            </tr>
-                            <!-- row 3 -->
-                            <tr>
-                                <th>3</th>
-                                <td>It can be declared without initialization.</td>
-                                <td>It can be declared without initialization.</td>
-                                <td>It cannot be declared without initialization.</td>
-                            </tr>
-                            <!-- row 4 -->
-                            <tr>
-                                <th>4</th>
-                                <td>It can be accessed without initialization as its default value is “undefined”.</td>
-                                <td>It cannot be accessed without initialization otherwise it will give
-                                    ‘referenceError’.</td>
-                                <td>It cannot be accessed without initialization, as it cannot be declared without
-                                    initialization.</td>
-                            </tr>
-                        </tbody>
-                    </table>
+
+                <div>
+                    <span class="text-xl font-medium">Var</span><br>
+                    <ul class="list-disc list-inside mr-4 my-4">
+                        <li>The scope of a var variable is functional scope.</li>
+                        <li>It can be updated and re-declared into the scope.</li>
+                        <li>It can be declared without initialization.</li>
+                        <li>It can be accessed without initialization as its default value is “undefined”.</li>
+
+                    </ul>
+
                 </div>
+                <p>
+                    <span class="text-xl font-medium">Let</span><br>
+                <ul class="list-disc list-inside mr-4 my-4">
+                    <li>The scope of a let variable is block scope.</li>
+                    <li>It can be updated but cannot be re-declared into the scope.</li>
+                    <li>It can be declared without initialization.</li>
+                    <li>It cannot be accessed without initialization otherwise it will give
+                        ‘referenceError’.</li>
+
+                </ul>
+
+                </p>
+                <p>
+                    <span class="text-xl font-medium">Const</span><br>
+                <ul class="list-disc list-inside mr-4 my-4">
+                    <li>The scope of a const variable is block scope.</li>
+                    <li>It cannot be updated or re-declared into the scope</li>
+                    <li>It cannot be declared without initialization.</li>
+                    <li>It cannot be accessed without initialization, as it cannot be declared without
+                        initialization.</li>
+
+                </ul>
+
+                </p>
                 </p>
             </div>
             <div class="mt-8 mb-2  ">

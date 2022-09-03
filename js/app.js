@@ -50,6 +50,8 @@ const showNews = news => {
     }
 
 
+    news.sort((a, b) => b.total_view > a.total_view ? 1 : b.total_view < a.total_view ? -1 : 0)
+
 
     news.forEach(newsItem => {
 
