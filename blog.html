@@ -30,8 +30,8 @@
                 <div>
                     <ul class="menu menu-horizontal p-0">
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a>About Us</a></li>
+                        <li><a class="active" href="blog.html">Blog</a></li>
+                        <li><a href="index.html">About Us</a></li>
                     </ul>
                 </div>
                 <div class="dropdown dropdown-end">
@@ -117,37 +117,47 @@
                 </p>
                 <p><i class="fa-solid fa-arrow-right"></i> The difference between foreach map find and filter are : </p>
                 <p>
-                <h2 class="text-xl font-medium pl-8">forEach()</h2>
-                forEach(), is used to execute the same code on every element in an array but does not change the array
-                and it returns undefined. <br>
-                <span class="font-medium">Example : <br></span>
-                let food = ['mango','rice','pepper','pear'];
-                food.forEach( foodItem => console.log('I want to eat '+foodItem););
+                <h2 class="text-xl font-medium pl-8 py-2">forEach()</h2>
+                <p class="pl-8">
+                    forEach(), is used to execute the same code on every element in an array but does not change the
+                    array
+                    and it returns undefined. <br>
+                    <span class="font-medium">Example : <br></span>
+                    let food = ['mango','rice','pepper','pear'];
+                    food.forEach( foodItem => console.log('I want to eat '+foodItem););
+                </p>
                 </p>
                 <p>
-                <h2 class="text-xl font-medium pl-8">map()</h2>
-                map() executes the same code on every element in an array and returns a new array with the updated
-                elements. <br>
-                <span class="font-medium">Example : <br></span>
-                let cost = [100,400,300,700];
-                let newCost = cost.map(costItem => costItem / 10);
-                console.log(newCost);
+                <h2 class="text-xl font-medium pl-8 py-2">map()</h2>
+                <p class="pl-8">
+                    map() executes the same code on every element in an array and returns a new array with the updated
+                    elements. <br>
+                    <span class="font-medium">Example : <br></span>
+                    let cost = [100,400,300,700];
+                    let newCost = cost.map(costItem => costItem / 10);
+                    console.log(newCost);
+                </p>
                 </p>
                 <p>
-                <h2 class="text-xl font-medium pl-8">fliter()</h2>
-                filter() checks every element in an array to see if it meets a certain criteria and returns a new array
-                with the elements that return truthy for the criteria. <br>
-                <span class="font-medium">Example : <br></span>
-                let cost = [100,400,50,40,700];
-                let smallCost = cost.filter(costItem => costItem < 200 ); console.log(smallCost); </p>
-                    <p>
-                    <h2 class="text-xl font-medium pl-8">find()</h2>
+                <h2 class="text-xl font-medium pl-8 py-2">fliter()</h2>
+                <p class="pl-8">
+                    filter() checks every element in an array to see if it meets a certain criteria and returns a new
+                    array
+                    with the elements that return truthy for the criteria. <br>
+                    <span class="font-medium">Example : <br></span>
+                    let cost = [100,400,50,40,700];
+                    let smallCost = cost.filter(costItem => costItem < 200 ); console.log(smallCost); </p>
+                </p>
+                <p>
+                <h2 class="text-xl font-medium pl-8 py-2">find()</h2>
+                <p class="pl-8">
                     find() and fliter all most same. find() return one truthy value in a array.
                     find() checks every element in an array to see if it meets certain criteria and returns the first
                     element in truthy for the criteria. <br>
                     <span class="font-medium">Example : <br></span>
                     let cost = [100,400,50,40,700];
                     let smallCost = cost.find(costItem => costItem < 200 ); console.log(smallCost); </p>
+                </p>
 
 
             </div>
@@ -180,6 +190,60 @@
                     Another great feature of template strings is that we can have strings with multiple lines for better
                     code readability. This cannot be done in an easy way with the old style of strings. But with
                     template string just write code and space enter done , this so easy.
+                </p>
+            </div>
+            <div class="mt-8 mb-2">
+                <p class="text-xl font-medium mb-2"><i class="fa-solid fa-circle-question"></i> Difference between arrow
+                    function and regular function?
+                </p>
+                <p>
+                    <i class="fa-solid fa-arrow-right mb-2"></i>
+                    Regular functions created using function declarations or expressions are constructible and callable.
+                    Since regular functions are constructible, they can be called using the new keyword. However, the
+                    arrow functions are only callable and not constructible, i.e arrow functions can never be used as
+                    constructor functions.
+
+                <h2 class="text-xl font-medium pl-8">1. Syntax</h2>
+
+                <p class="pl-12">
+                    const add = function(x, y) {
+                    return x + y;
+                    };
+                    // ES6
+                    let add = (x, y) => x + y;
+                </p>
+
+                <h2 class="text-xl font-medium pl-8">2. Arguments binding</h2>
+                <p class="pl-12">
+                    Arrow functions do not have an arguments binding. However, they have access to the arguments object
+                    of
+                    the closest non-arrow parent function. Named and rest parameters are heavily relied upon to capture
+                    the
+                    arguments passed to arrow functions.
+                </p>
+
+                <h2 class="text-xl font-medium pl-8">3. Use of this keyword</h2>
+                <p class="pl-12">
+                    Unlike regular functions, arrow functions do not have their own this. The value of this inside an
+                    arrow
+                    function remains the same throughout the lifecycle of the function and is always bound to the value
+                    of
+                    this in the closest non-arrow parent function.
+                </p>
+
+                <h2 class="text-xl font-medium pl-8">4. Using new keyword</h2>
+                <p class="pl-12">
+                    Regular functions created using function declarations or expressions are constructible and callable.
+                    Since regular functions are constructible, they can be called using the new keyword.
+
+                    However, the arrow functions are only callable and not constructible, i.e arrow functions can never
+                    be
+                    used as constructor functions. Hence, they can never be invoked with the new keyword.
+                </p>
+
+
+
+
                 </p>
             </div>
         </article>

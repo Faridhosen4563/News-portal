@@ -32,7 +32,6 @@ const showNews = news => {
     const newsBody = document.getElementById("news-body");
     newsBody.textContent = '';
 
-
     const noFound = document.getElementById("no-found");
     const found = document.getElementById("found");
 
