@@ -74,7 +74,7 @@ const showNews = news => {
                             </div>
                         </div>
                         <div>
-                            <p><i class="fa-solid fa-eye"></i> ${total_view}</p>
+                            <p><i class="fa-solid fa-eye"></i> ${total_view ? total_view : "no data"}</p>
                         </div>
                         <div>
                         <i class="fa-solid fa-star"></i>
@@ -105,10 +105,12 @@ const showmodalbody = (id) => {
 }
 
 const displayModal = data => {
+    console.log(data);
 
-    const { image_url, rating, title, others_info, details } = data;
+    const { image_url, rating, title, others_info, details, author } = data;
     const { number, badge } = rating;
     const { is_todays_pick, is_trending } = others_info;
+    const { name, published_date } = author;
 
     const modalContainer = document.getElementById("modal-container");
     modalContainer.innerHTML = `
@@ -119,7 +121,9 @@ const displayModal = data => {
                 <p class = "mb-2">is_todays_pick : ${is_todays_pick ? "yes, this is todays pick" : "no, this is not todays pick"}</p>
                 <p class = "mb-2">is_trending : ${is_trending ? "yes, this is hot news" : "no, this is not."}</p>
                 <p class = "mb-2">${details ? details : "No data found"}</p>
-                <div class="card-actions justify-between">
+                <p>Name : ${name ? name : "no data"}</P
+                <small>Published date : ${published_date ? published_date : "no date found"}</small>
+                <div class="card-actions justify-between mt-2">
                      <p><i class="fa-solid fa-star"></i> ${number ? number : "no data"}</p>
                      <p><i class="fa-solid fa-certificate"></i> ${badge ? badge : "no data found"}</p>
                 </div>
